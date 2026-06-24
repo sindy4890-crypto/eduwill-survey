@@ -41,7 +41,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Pretend
 .opt{display:flex;align-items:flex-start;gap:9px;padding:10px 12px;border:1.5px solid #ebebeb;border-radius:10px;cursor:pointer;transition:border-color .12s,background .12s}
 .opt:hover{border-color:#fdd88a;background:#fffdf5}
 .opt.on{border-color:#F5A623;background:#fffbf0}
-.opt.disabled-opt{opacity:.45;pointer-events:none}
+.opt.dim{opacity:.4;pointer-events:none}
 .opt input{margin-top:2px;flex-shrink:0;accent-color:#F5A623;width:14px;height:14px}
 .ol{font-size:13.5px;color:#222;line-height:1.45;flex:1}
 .ol small{display:block;font-size:11px;color:#bbb;margin-top:2px}
@@ -83,40 +83,25 @@ textarea::placeholder{color:#ccc}
   <p>더 나은 가입 경험을 만들기 위해 소중한 의견을 여쭤보려 합니다.</p>
   <div class="meta">
     <span>약 2분 소요</span>
-    <span>총 8문항</span>
+    <span>최대 6문항</span>
     <span>익명 응답</span>
   </div>
 </div>
 
 <div class="prog">
-  <div class="prog-top"><span id="plabel">1 / 8</span><span id="ppct">13%</span></div>
-  <div class="prog-bar"><div class="prog-track" id="ptrack" style="width:13%"></div></div>
-</div>
-
-<!-- Q0 — 재가입 여부 -->
-<div class="qcard on" id="q0">
-  <div class="qtop"><span class="qnum">Q0</span><span class="qtag">단일선택</span><span class="qreq">필수</span></div>
-  <div class="qtext">에듀윌 회원가입은 처음이셨나요?</div>
-  <div class="opts">
-    <label class="opt" onclick="pick('q0','a',this)"><input type="radio" name="q0" value="a"><span class="ol">처음 가입했습니다</span></label>
-    <label class="opt" onclick="pick('q0','b',this)"><input type="radio" name="q0" value="b"><span class="ol">과거에 가입한 이력이 있습니다</span></label>
-    <label class="opt" onclick="pick('q0','c',this)"><input type="radio" name="q0" value="c"><span class="ol">기억나지 않습니다</span></label>
-  </div>
-  <div class="nav">
-    <span class="step-txt">1 / 8</span>
-    <div class="nav-btns"><button class="bnx" id="q0nx" onclick="go('q0','q1',2)" disabled>다음</button></div>
-  </div>
+  <div class="prog-top"><span id="plabel">시작</span><span id="ppct">0%</span></div>
+  <div class="prog-bar"><div class="prog-track" id="ptrack" style="width:0%"></div></div>
 </div>
 
 <!-- Q1 — 관심과정 여부 -->
-<div class="qcard" id="q1">
+<div class="qcard on" id="q1">
   <div class="qtop"><span class="qnum">Q1</span><span class="qtag">단일선택</span><span class="qreq">필수</span></div>
-  <div class="qtext">가입 당시 에듀윌에서 관심 있는 과정이 있으셨나요?</div>
+  <div class="qtext">가입 당시 에듀윌에서 어떤 상황이셨나요?</div>
   <div class="qsub">이 답변에 따라 다음 질문이 달라집니다.</div>
   <div class="opts">
     <label class="opt" onclick="pick('q1','a',this)">
       <input type="radio" name="q1" value="a">
-      <span class="ol">네, 관심 있는 과정이 있었습니다<small>예) 공인중개사·9급공무원 등 특정 과정이 정해져 있었어요</small></span>
+      <span class="ol">관심 있는 과정이 있었습니다<small>예) 공인중개사·9급공무원 등 특정 과정이 정해져 있었어요</small></span>
     </label>
     <label class="opt" onclick="pick('q1','b',this)">
       <input type="radio" name="q1" value="b">
@@ -124,188 +109,164 @@ textarea::placeholder{color:#ccc}
     </label>
     <label class="opt" onclick="pick('q1','c',this)">
       <input type="radio" name="q1" value="c">
-      <span class="ol">아직 어떤 과정을 준비할지 정하지 못했습니다<small>목표 자체가 아직 없는 상태였어요</small></span>
+      <span class="ol">에듀윌에서 관심 있는 과정이 없었습니다<small>목표나 관심 분야가 에듀윌 과정과 맞지 않았어요</small></span>
     </label>
     <label class="opt" onclick="pick('q1','d',this)">
       <input type="radio" name="q1" value="d">
-      <span class="ol">무료 혜택·자료 확인을 위해 가입했습니다<small>이벤트·무료체험·교재 자료 등 다른 목적이었어요</small></span>
+      <span class="ol">아직 어떤 과정을 준비할지 정하지 못했습니다<small>목표 자체가 아직 없는 상태였어요</small></span>
     </label>
     <label class="opt" onclick="pick('q1','e',this)">
       <input type="radio" name="q1" value="e">
-      <span class="ol">기타</span>
+      <span class="ol">무료 혜택·자료 확인을 위해 가입했습니다<small>이벤트·무료체험·교재 자료 등 다른 목적이었어요</small></span>
     </label>
   </div>
-  <textarea id="q1etc" placeholder="기타 상황을 간단히 적어주세요" style="display:none"></textarea>
   <div class="nav">
-    <span class="step-txt">2 / 8</span>
-    <div class="nav-btns">
-      <button class="bbk" onclick="go('q1','q0',1)">이전</button>
-      <button class="bnx" id="q1nx" onclick="fromQ1()" disabled>다음</button>
-    </div>
+    <span class="step-txt"></span>
+    <div class="nav-btns"><button class="bnx" id="q1nx" onclick="fromQ1()" disabled>다음</button></div>
   </div>
 </div>
 
-<!-- Q2 — Q1=a,b 전용 -->
-<div class="qcard branch" id="q2ab">
+<!-- Q2-A — Q1=a,b 전용: 미선택 이유 -->
+<div class="qcard branch" id="q2a">
   <div class="qtop"><span class="qnum">Q2</span><span class="qtag">복수선택</span><span class="qreq">필수</span></div>
   <div class="qtext">관심 과정이 있었는데 선택하지 않으신 이유는 무엇인가요?</div>
   <div class="qsub">해당하는 항목을 모두 선택해 주세요.</div>
   <div class="opts">
-    <label class="opt" onclick="chk(this,'r2ab')"><input type="checkbox" name="r2ab" value="1"><span class="ol">빨리 가입을 끝내고 싶어서</span></label>
-    <label class="opt" onclick="chk(this,'r2ab')"><input type="checkbox" name="r2ab" value="2"><span class="ol">관심 과정을 찾는 과정이 번거로워서</span></label>
-    <label class="opt" onclick="chk(this,'r2ab')"><input type="checkbox" name="r2ab" value="3"><span class="ol">전화 상담 연락이 올 것 같아서</span></label>
-    <label class="opt" onclick="chk(this,'r2ab')"><input type="checkbox" name="r2ab" value="4"><span class="ol">문자·카카오톡 안내가 올 것 같아서</span></label>
-    <label class="opt" onclick="chk(this,'r2ab')"><input type="checkbox" name="r2ab" value="5"><span class="ol">관심사를 플랫폼에 알려주는 것이 부담스러워서</span></label>
-    <label class="opt" onclick="chk(this,'r2ab')"><input type="checkbox" name="r2ab" value="6"><span class="ol">혜택이 충분히 매력적이지 않아서</span></label>
-    <label class="opt" onclick="chk(this,'r2ab')"><input type="checkbox" name="r2ab" value="7"><span class="ol">여러 과정에 관심이 있어 하나만 고르기 어려워서</span></label>
-    <label class="opt" onclick="chk(this,'r2ab')"><input type="checkbox" name="r2ab" value="8"><span class="ol">혜택 유효기간 때문에 나중에 선택하려 해서</span></label>
-    <label class="opt" onclick="chk(this,'r2ab')"><input type="checkbox" name="r2ab" value="9"><span class="ol">기타</span></label>
+    <label class="opt" onclick="chk(this,'r2a')"><input type="checkbox" name="r2a" value="1"><span class="ol">빨리 가입을 끝내고 싶어서</span></label>
+    <label class="opt" onclick="chk(this,'r2a')"><input type="checkbox" name="r2a" value="2"><span class="ol">원하는 과정을 찾기 어려워서</span></label>
+    <label class="opt" onclick="chk(this,'r2a')"><input type="checkbox" name="r2a" value="3"><span class="ol">전화 상담 연락이 올 것 같아서</span></label>
+    <label class="opt" onclick="chk(this,'r2a')"><input type="checkbox" name="r2a" value="4"><span class="ol">문자·카카오톡 안내가 올 것 같아서</span></label>
+    <label class="opt" onclick="chk(this,'r2a')"><input type="checkbox" name="r2a" value="5"><span class="ol">관심사를 플랫폼에 알려주는 것이 부담스러워서</span></label>
+    <label class="opt" onclick="chk(this,'r2a')"><input type="checkbox" name="r2a" value="6"><span class="ol">제공되는 혜택이 충분히 매력적이지 않아서</span></label>
+    <label class="opt" onclick="chk(this,'r2a')"><input type="checkbox" name="r2a" value="7"><span class="ol">하나만 선택해야 해서 고르기 어려워서</span></label>
+    <label class="opt" onclick="chk(this,'r2a')"><input type="checkbox" name="r2a" value="8"><span class="ol">혜택 유효기간 때문에 나중에 선택하려 해서</span></label>
+    <label class="opt" onclick="chk(this,'r2a')"><input type="checkbox" name="r2a" value="9"><span class="ol">기타</span></label>
   </div>
-  <textarea id="q2abetc" placeholder="기타 이유를 입력해 주세요" style="display:none"></textarea>
+  <textarea id="q2aetc" placeholder="기타 이유를 입력해 주세요" style="display:none"></textarea>
   <div class="nav">
-    <span class="step-txt">3 / 8</span>
+    <span class="step-txt"></span>
     <div class="nav-btns">
-      <button class="bbk" onclick="go('q2ab','q1',2)">이전</button>
-      <button class="bnx" id="q2abnx" onclick="go('q2ab','q3',4)" disabled>다음</button>
+      <button class="bbk" onclick="show('q1')">이전</button>
+      <button class="bnx" id="q2anx" onclick="show('q3')" disabled>다음</button>
     </div>
   </div>
 </div>
 
-<!-- Q2 — Q1=c 전용 -->
-<div class="qcard branch" id="q2c">
+<!-- Q2-B — Q1=d 전용: 목표 미정 이유 -->
+<div class="qcard branch" id="q2b">
   <div class="qtop"><span class="qnum">Q2</span><span class="qtag">복수선택</span><span class="qreq">필수</span></div>
   <div class="qtext">아직 관심 과정을 정하지 못하신 이유는 무엇인가요?</div>
   <div class="qsub">해당하는 항목을 모두 선택해 주세요.</div>
   <div class="opts">
-    <label class="opt" onclick="chk(this,'r2c')"><input type="checkbox" name="r2c" value="1"><span class="ol">어떤 자격증·시험을 준비해야 할지 모르겠어서</span></label>
-    <label class="opt" onclick="chk(this,'r2c')"><input type="checkbox" name="r2c" value="2"><span class="ol">여러 과정을 비교해보고 싶어서</span></label>
-    <label class="opt" onclick="chk(this,'r2c')"><input type="checkbox" name="r2c" value="3"><span class="ol">당장 공부할 계획이 없어서</span></label>
-    <label class="opt" onclick="chk(this,'r2c')"><input type="checkbox" name="r2c" value="4"><span class="ol">일단 둘러보려고 가입한 것이어서</span></label>
-    <label class="opt" onclick="chk(this,'r2c')"><input type="checkbox" name="r2c" value="5"><span class="ol">기타</span></label>
+    <label class="opt" onclick="chk(this,'r2b')"><input type="checkbox" name="r2b" value="1"><span class="ol">어떤 자격증·시험을 준비해야 할지 모르겠어서</span></label>
+    <label class="opt" onclick="chk(this,'r2b')"><input type="checkbox" name="r2b" value="2"><span class="ol">여러 과정을 비교해보고 싶어서</span></label>
+    <label class="opt" onclick="chk(this,'r2b')"><input type="checkbox" name="r2b" value="3"><span class="ol">당장 공부할 계획이 없어서</span></label>
+    <label class="opt" onclick="chk(this,'r2b')"><input type="checkbox" name="r2b" value="4"><span class="ol">일단 둘러보려고 가입한 것이어서</span></label>
+    <label class="opt" onclick="chk(this,'r2b')"><input type="checkbox" name="r2b" value="5"><span class="ol">기타</span></label>
   </div>
-  <textarea id="q2cetc" placeholder="기타 이유를 입력해 주세요" style="display:none"></textarea>
+  <textarea id="q2betc" placeholder="기타 이유를 입력해 주세요" style="display:none"></textarea>
   <div class="nav">
-    <span class="step-txt">3 / 8</span>
+    <span class="step-txt"></span>
     <div class="nav-btns">
-      <button class="bbk" onclick="go('q2c','q1',2)">이전</button>
-      <button class="bnx" id="q2cnx" onclick="go('q2c','q3',4)" disabled>다음</button>
+      <button class="bbk" onclick="show('q1')">이전</button>
+      <button class="bnx" id="q2bnx" onclick="show('q4')" disabled>다음</button>
     </div>
   </div>
 </div>
 
-<!-- Q2 — Q1=d 전용 -->
-<div class="qcard branch" id="q2d">
+<!-- Q2-C — Q1=e 전용: 혜택 목적 세분화 -->
+<div class="qcard branch" id="q2c">
   <div class="qtop"><span class="qnum">Q2</span><span class="qtag">단일선택</span><span class="qreq">필수</span></div>
   <div class="qtext">주로 어떤 목적으로 가입하셨나요?</div>
   <div class="opts">
-    <label class="opt" onclick="pick('q2d','1',this)"><input type="radio" name="q2d" value="1"><span class="ol">이벤트·경품 응모</span></label>
-    <label class="opt" onclick="pick('q2d','2',this)"><input type="radio" name="q2d" value="2"><span class="ol">무료 강의·체험</span></label>
-    <label class="opt" onclick="pick('q2d','3',this)"><input type="radio" name="q2d" value="3"><span class="ol">무료 교재·자료 다운로드</span></label>
-    <label class="opt" onclick="pick('q2d','4',this)"><input type="radio" name="q2d" value="4"><span class="ol">할인 쿠폰 수령</span></label>
-    <label class="opt" onclick="pick('q2d','5',this)"><input type="radio" name="q2d" value="5"><span class="ol">기타</span></label>
+    <label class="opt" onclick="pick('q2c','1',this)"><input type="radio" name="q2c" value="1"><span class="ol">이벤트·경품 응모</span></label>
+    <label class="opt" onclick="pick('q2c','2',this)"><input type="radio" name="q2c" value="2"><span class="ol">무료 강의·체험</span></label>
+    <label class="opt" onclick="pick('q2c','3',this)"><input type="radio" name="q2c" value="3"><span class="ol">무료 교재·자료 다운로드</span></label>
+    <label class="opt" onclick="pick('q2c','4',this)"><input type="radio" name="q2c" value="4"><span class="ol">할인 쿠폰 수령</span></label>
+    <label class="opt" onclick="pick('q2c','5',this)"><input type="radio" name="q2c" value="5"><span class="ol">기타</span></label>
   </div>
-  <textarea id="q2detc" placeholder="기타 목적을 입력해 주세요" style="display:none"></textarea>
+  <textarea id="q2cetc" placeholder="기타 목적을 입력해 주세요" style="display:none"></textarea>
   <div class="nav">
-    <span class="step-txt">3 / 8</span>
+    <span class="step-txt"></span>
     <div class="nav-btns">
-      <button class="bbk" onclick="go('q2d','q1',2)">이전</button>
-      <button class="bnx" id="q2dnx" onclick="go('q2d','q3',4)" disabled>다음</button>
+      <button class="bbk" onclick="show('q1')">이전</button>
+      <button class="bnx" id="q2cnx" onclick="show('q5')" disabled>다음</button>
     </div>
   </div>
 </div>
 
-<!-- Q3 — 선택 안내 충분성 (전체 공통) -->
+<!-- Q3 — 과정 찾기 난이도 (Q1=a,b만) -->
 <div class="qcard" id="q3">
   <div class="qtop"><span class="qnum">Q3</span><span class="qtag">단일선택</span><span class="qreq">필수</span></div>
-  <div class="qtext">관심과정 선택에 대한 안내가 충분했다고 생각하시나요?</div>
-  <div class="qsub">혜택 안내, 선택 방법 설명, 화면 구성 등을 종합적으로 평가해 주세요.</div>
-  <div class="opts">
-    <label class="opt" onclick="pick('q3','1',this)"><input type="radio" name="q3" value="1"><span class="ol">충분했다</span></label>
-    <label class="opt" onclick="pick('q3','2',this)"><input type="radio" name="q3" value="2"><span class="ol">보통이다</span></label>
-    <label class="opt" onclick="pick('q3','3',this)"><input type="radio" name="q3" value="3"><span class="ol">부족했다</span></label>
-    <label class="opt" onclick="pick('q3','4',this)"><input type="radio" name="q3" value="4"><span class="ol">기억나지 않는다</span></label>
-  </div>
-  <div class="nav">
-    <span class="step-txt">4 / 8</span>
-    <div class="nav-btns">
-      <button class="bbk" id="q3bk" onclick="backQ3()">이전</button>
-      <button class="bnx" id="q3nx" onclick="go('q3','q4',5)" disabled>다음</button>
-    </div>
-  </div>
-</div>
-
-<!-- Q4 — 무엇이 있었으면 선택했을 것인가 (전체 공통) -->
-<div class="qcard" id="q4">
-  <div class="qtop"><span class="qnum">Q4</span><span class="qtag">복수선택</span><span class="qreq">필수</span></div>
-  <div class="qtext">아래 중 어떤 기능이 있었다면 관심과정을 선택했을 가능성이 높았나요?</div>
-  <div class="limit-note">최대 2개까지 선택 가능합니다</div>
-  <div class="opts" id="q4opts">
-    <label class="opt" onclick="chkLimit(this,'r4',2)"><input type="checkbox" name="r4" value="1"><span class="ol">여러 과정을 동시에 선택 가능</span></label>
-    <label class="opt" onclick="chkLimit(this,'r4',2)"><input type="checkbox" name="r4" value="2"><span class="ol">AI·추천 기능 제공<small>내 상황에 맞는 과정을 추천받을 수 있었다면</small></span></label>
-    <label class="opt" onclick="chkLimit(this,'r4',2)"><input type="checkbox" name="r4" value="3"><span class="ol">인기 과정보다 직무·목적별 추천 제공<small>취업, 이직, 부업 등 목적에 맞게 분류되었다면</small></span></label>
-    <label class="opt" onclick="chkLimit(this,'r4',2)"><input type="checkbox" name="r4" value="4"><span class="ol">과정별 혜택 비교 제공<small>어떤 과정을 선택할 때 혜택이 더 큰지 볼 수 있었다면</small></span></label>
-    <label class="opt" onclick="chkLimit(this,'r4',2)"><input type="checkbox" name="r4" value="5"><span class="ol">선택 후 언제든 변경 가능하다는 안내</span></label>
-    <label class="opt" onclick="chkLimit(this,'r4',2)"><input type="checkbox" name="r4" value="6"><span class="ol">관심과정 선택 시 추가 혜택 제공<small>더 큰 할인쿠폰이나 무료강의 제공</small></span></label>
-    <label class="opt" onclick="chkLimit(this,'r4',2)"><input type="checkbox" name="r4" value="7"><span class="ol">해당 없음 (어떤 기능이 있어도 선택하지 않았을 것 같다)</span></label>
-  </div>
-  <div class="nav">
-    <span class="step-txt">5 / 8</span>
-    <div class="nav-btns">
-      <button class="bbk" onclick="go('q4','q3',4)">이전</button>
-      <button class="bnx" id="q4nx" onclick="go('q4','q5',6)" disabled>다음</button>
-    </div>
-  </div>
-</div>
-
-<!-- Q5 — UX 난이도 (전체 공통) -->
-<div class="qcard" id="q5">
-  <div class="qtop"><span class="qnum">Q5</span><span class="qtag">단일선택</span><span class="qreq">필수</span></div>
   <div class="qtext">관심과정 선택 화면에서 원하는 과정을 찾기가 쉬우셨나요?</div>
   <div class="hint">💡 가입 화면에 공인중개사·주택관리사·9급공무원 등 인기 과목이 버튼 형태로 표시되어 있었어요.</div>
   <div class="opts">
-    <label class="opt" onclick="pick('q5','1',this)"><input type="radio" name="q5" value="1"><span class="ol">매우 쉬웠다</span></label>
-    <label class="opt" onclick="pick('q5','2',this)"><input type="radio" name="q5" value="2"><span class="ol">쉬웠다</span></label>
-    <label class="opt" onclick="pick('q5','3',this)"><input type="radio" name="q5" value="3"><span class="ol">보통이었다</span></label>
-    <label class="opt" onclick="pick('q5','4',this)"><input type="radio" name="q5" value="4"><span class="ol">어려웠다</span></label>
-    <label class="opt" onclick="pick('q5','5',this)"><input type="radio" name="q5" value="5"><span class="ol">매우 어려웠다</span></label>
+    <label class="opt" onclick="pick('q3','1',this)"><input type="radio" name="q3" value="1"><span class="ol">매우 쉬웠다</span></label>
+    <label class="opt" onclick="pick('q3','2',this)"><input type="radio" name="q3" value="2"><span class="ol">쉬웠다</span></label>
+    <label class="opt" onclick="pick('q3','3',this)"><input type="radio" name="q3" value="3"><span class="ol">보통이었다</span></label>
+    <label class="opt" onclick="pick('q3','4',this)"><input type="radio" name="q3" value="4"><span class="ol">어려웠다</span></label>
+    <label class="opt" onclick="pick('q3','5',this)"><input type="radio" name="q3" value="5"><span class="ol">매우 어려웠다</span></label>
   </div>
   <div class="nav">
-    <span class="step-txt">6 / 8</span>
+    <span class="step-txt"></span>
     <div class="nav-btns">
-      <button class="bbk" onclick="go('q5','q4',5)">이전</button>
-      <button class="bnx" id="q5nx" onclick="go('q5','q6',7)" disabled>다음</button>
+      <button class="bbk" onclick="show('q2a')">이전</button>
+      <button class="bnx" id="q3nx" onclick="show('q4')" disabled>다음</button>
     </div>
   </div>
 </div>
 
-<!-- Q6 — 혜택 인지 (전체 공통) -->
-<div class="qcard" id="q6">
-  <div class="qtop"><span class="qnum">Q6</span><span class="qtag">단일선택</span><span class="qreq">필수</span></div>
+<!-- Q4 — 혜택 중심 (Q1=a,b,c,d / Q1=e는 스킵) -->
+<div class="qcard" id="q4">
+  <div class="qtop"><span class="qnum">Q4</span><span class="qtag">복수선택</span><span class="qreq">필수</span></div>
+  <div class="qtext">아래 중 어떤 혜택이 있었다면 관심과정을 선택하셨을 것 같나요?</div>
+  <div class="limit-note">최대 2개까지 선택 가능합니다</div>
+  <div class="opts">
+    <label class="opt" onclick="chkLimit(this,'r4',2)"><input type="checkbox" name="r4" value="1"><span class="ol">즉시 사용 가능한 고액 할인쿠폰<small>예) 선택 즉시 3만원 이상 할인</small></span></label>
+    <label class="opt" onclick="chkLimit(this,'r4',2)"><input type="checkbox" name="r4" value="2"><span class="ol">유효기간이 긴 혜택<small>예) 쿠폰·무료강의 유효기간 30일 이상</small></span></label>
+    <label class="opt" onclick="chkLimit(this,'r4',2)"><input type="checkbox" name="r4" value="3"><span class="ol">최신 기출문제·합격자료 PDF 즉시 제공</span></label>
+    <label class="opt" onclick="chkLimit(this,'r4',2)"><input type="checkbox" name="r4" value="4"><span class="ol">전 과목 무료 맛보기 강의 제공<small>선택한 과정의 대표 강의 무료 시청</small></span></label>
+    <label class="opt" onclick="chkLimit(this,'r4',2)"><input type="checkbox" name="r4" value="5"><span class="ol">선택해도 광고·TM 연락이 없다는 보장</span></label>
+    <label class="opt" onclick="chkLimit(this,'r4',2)"><input type="checkbox" name="r4" value="6"><span class="ol">여러 과정을 동시에 선택 가능</span></label>
+    <label class="opt" onclick="chkLimit(this,'r4',2)"><input type="checkbox" name="r4" value="7"><span class="ol">해당 없음</span></label>
+  </div>
+  <div class="nav">
+    <span class="step-txt"></span>
+    <div class="nav-btns">
+      <button class="bbk" id="q4bk" onclick="backQ4()">이전</button>
+      <button class="bnx" id="q4nx" onclick="show('q5')" disabled>다음</button>
+    </div>
+  </div>
+</div>
+
+<!-- Q5 — 혜택 인지 (전체 공통) -->
+<div class="qcard" id="q5">
+  <div class="qtop"><span class="qnum">Q5</span><span class="qtag">단일선택</span><span class="qreq">필수</span></div>
   <div class="qtext">관심과정 선택 시 할인쿠폰·무료강의를 받을 수 있다는 걸 알고 계셨나요?</div>
   <div class="opts">
-    <label class="opt" onclick="pick('q6','a',this)"><input type="radio" name="q6" value="a"><span class="ol">알고 있었고 기억난다</span></label>
-    <label class="opt" onclick="pick('q6','b',this)"><input type="radio" name="q6" value="b"><span class="ol">화면에서 봤지만 자세히 읽지 않았다</span></label>
-    <label class="opt" onclick="pick('q6','c',this)"><input type="radio" name="q6" value="c"><span class="ol">몰랐다</span></label>
+    <label class="opt" onclick="pick('q5','a',this)"><input type="radio" name="q5" value="a"><span class="ol">알고 있었고 기억난다</span></label>
+    <label class="opt" onclick="pick('q5','b',this)"><input type="radio" name="q5" value="b"><span class="ol">화면에서 봤지만 자세히 읽지 않았다</span></label>
+    <label class="opt" onclick="pick('q5','c',this)"><input type="radio" name="q5" value="c"><span class="ol">몰랐다</span></label>
   </div>
   <div class="nav">
-    <span class="step-txt">7 / 8</span>
+    <span class="step-txt"></span>
     <div class="nav-btns">
-      <button class="bbk" onclick="go('q6','q5',6)">이전</button>
-      <button class="bnx" id="q6nx" onclick="go('q6','q7',8)" disabled>다음</button>
+      <button class="bbk" id="q5bk" onclick="backQ5()">이전</button>
+      <button class="bnx" id="q5nx" onclick="show('q6')" disabled>다음</button>
     </div>
   </div>
 </div>
 
-<!-- Q7 — 자유응답 -->
-<div class="qcard" id="q7">
-  <div class="qtop"><span class="qnum">Q7</span><span class="qtag">자유응답</span><span class="qopt-label">선택</span></div>
+<!-- Q6 — 자유응답 (전체 공통) -->
+<div class="qcard" id="q6">
+  <div class="qtop"><span class="qnum">Q6</span><span class="qtag">자유응답</span><span class="qopt-label">선택</span></div>
   <div class="qtext">관심과정을 선택하지 않은 이유를 자유롭게 적어주세요.</div>
-  <div class="qsub">앞의 선택지에 없었던 이유나 불편하셨던 점 모두 환영합니다.</div>
-  <textarea id="q7txt" placeholder="예) 관심과정이 회원정보에 저장되는 줄 몰랐어요 / 나중에 변경 안 되는 줄 알았어요 / 베스트 과목이 광고처럼 보여서 안 눌렀어요 ..."></textarea>
+  <div class="qsub">앞의 선택지에 없었던 이유나 불편했던 점 모두 환영합니다.</div>
+  <textarea id="q6txt" placeholder="예) 관심과정이 회원정보에 저장되는 줄 몰랐어요 / 나중에 변경 안 되는 줄 알았어요 / 베스트 과목이 광고처럼 보여서 안 눌렀어요 ..."></textarea>
   <div class="nav">
-    <span class="step-txt">8 / 8</span>
+    <span class="step-txt"></span>
     <div class="nav-btns">
-      <button class="bbk" onclick="go('q7','q6',7)">이전</button>
+      <button class="bbk" onclick="show('q5')">이전</button>
       <button class="bnx" onclick="finish()">제출하기</button>
     </div>
   </div>
@@ -328,90 +289,100 @@ textarea::placeholder{color:#ccc}
 
 </div>
 <script>
-var q1v=null, q2active=null;
+// 상태
+var q1v = null;
+var q2active = null; // 'q2a' | 'q2b' | 'q2c' | null
 
-function pick(nm,val,el){
-  document.querySelectorAll('input[name="'+nm+'"]').forEach(i=>i.closest('.opt').classList.remove('on'));
-  el.classList.add('on');
-  el.querySelector('input').checked=true;
-  var nxMap={q0:'q0nx',q1:'q1nx',q2d:'q2dnx',q3:'q3nx',q5:'q5nx',q6:'q6nx'};
-  if(nxMap[nm]) document.getElementById(nxMap[nm]).disabled=false;
-  if(nm==='q1'){
-    q1v=val;
-    document.getElementById('q1etc').style.display=val==='e'?'block':'none';
-  }
-  if(nm==='q2d'){
-    document.getElementById('q2detc').style.display=val==='5'?'block':'none';
-  }
+// 진행률 계산: 각 카드의 최대 스텝 수 매핑
+var stepMap = {q1:1, q2a:2, q2b:2, q2c:2, q3:3, q4:4, q5:5, q6:6};
+var totalSteps = 6;
+
+function setProg(cardId){
+  var s = stepMap[cardId] || 1;
+  var p = Math.round(s/totalSteps*100);
+  document.getElementById('ptrack').style.width = p+'%';
+  document.getElementById('ppct').textContent = p+'%';
+  document.getElementById('plabel').textContent = s+' / '+totalSteps;
 }
 
-function chk(el,grp){
-  var cb=el.querySelector('input');
-  cb.checked=!cb.checked;
-  el.classList.toggle('on',cb.checked);
-  var any=document.querySelectorAll('input[name="'+grp+'"]:checked').length>0;
-  if(grp==='r2ab'){
-    document.getElementById('q2abetc').style.display=document.querySelector('input[name="r2ab"][value="9"]:checked')?'block':'none';
-    document.getElementById('q2abnx').disabled=!any;
-  }
-  if(grp==='r2c'){
-    document.getElementById('q2cetc').style.display=document.querySelector('input[name="r2c"][value="5"]:checked')?'block':'none';
-    document.getElementById('q2cnx').disabled=!any;
-  }
-}
-
-function chkLimit(el,grp,max){
-  var cb=el.querySelector('input');
-  var checked=document.querySelectorAll('input[name="'+grp+'"]:checked');
-  if(!cb.checked && checked.length>=max){ return; }
-  cb.checked=!cb.checked;
-  el.classList.toggle('on',cb.checked);
-  var nowChecked=document.querySelectorAll('input[name="'+grp+'"]:checked');
-  // 최대 도달 시 미선택 항목 dim 처리
-  document.querySelectorAll('input[name="'+grp+'"]').forEach(function(i){
-    var opt=i.closest('.opt');
-    if(!i.checked && nowChecked.length>=max){
-      opt.classList.add('disabled-opt');
-    } else {
-      opt.classList.remove('disabled-opt');
-    }
-  });
-  document.getElementById('q4nx').disabled=nowChecked.length===0;
-}
-
-function setCard(id){
+function show(id){
   document.querySelectorAll('.qcard').forEach(c=>c.classList.remove('on'));
   document.getElementById(id).classList.add('on');
+  setProg(id);
   window.scrollTo({top:0,behavior:'smooth'});
 }
 
-function setProg(step){
-  var p=Math.round(step/8*100);
-  document.getElementById('ptrack').style.width=p+'%';
-  document.getElementById('ppct').textContent=p+'%';
-  document.getElementById('plabel').textContent=step+' / 8';
+function pick(nm, val, el){
+  document.querySelectorAll('input[name="'+nm+'"]').forEach(i=>i.closest('.opt').classList.remove('on'));
+  el.classList.add('on');
+  el.querySelector('input').checked = true;
+
+  if(nm==='q1'){
+    q1v = val;
+    document.getElementById('q1nx').disabled = false;
+  }
+  if(nm==='q2c'){
+    document.getElementById('q2cetc').style.display = val==='5' ? 'block' : 'none';
+    document.getElementById('q2cnx').disabled = false;
+  }
+  if(nm==='q3') document.getElementById('q3nx').disabled = false;
+  if(nm==='q5') document.getElementById('q5nx').disabled = false;
 }
 
-function go(from,to,step){ setCard(to); setProg(step); }
+function chk(el, grp){
+  var cb = el.querySelector('input');
+  cb.checked = !cb.checked;
+  el.classList.toggle('on', cb.checked);
+  var any = document.querySelectorAll('input[name="'+grp+'"]:checked').length > 0;
+  if(grp==='r2a'){
+    document.getElementById('q2aetc').style.display = document.querySelector('input[name="r2a"][value="9"]:checked') ? 'block' : 'none';
+    document.getElementById('q2anx').disabled = !any;
+  }
+  if(grp==='r2b'){
+    document.getElementById('q2betc').style.display = document.querySelector('input[name="r2b"][value="5"]:checked') ? 'block' : 'none';
+    document.getElementById('q2bnx').disabled = !any;
+  }
+}
+
+function chkLimit(el, grp, max){
+  var cb = el.querySelector('input');
+  var checked = document.querySelectorAll('input[name="'+grp+'"]:checked');
+  if(!cb.checked && checked.length >= max) return;
+  cb.checked = !cb.checked;
+  el.classList.toggle('on', cb.checked);
+  var nowChecked = document.querySelectorAll('input[name="'+grp+'"]:checked');
+  document.querySelectorAll('input[name="'+grp+'"]').forEach(function(i){
+    var opt = i.closest('.opt');
+    opt.classList.toggle('dim', !i.checked && nowChecked.length >= max);
+  });
+  document.getElementById('q4nx').disabled = nowChecked.length === 0;
+}
 
 function fromQ1(){
   if(!q1v) return;
-  if(q1v==='a'||q1v==='b'){ q2active='q2ab'; setCard('q2ab'); }
-  else if(q1v==='c'){ q2active='q2c'; setCard('q2c'); }
-  else if(q1v==='d'){ q2active='q2d'; setCard('q2d'); }
-  else { q2active=null; setCard('q3'); setProg(4); return; }
-  setProg(3);
+  if(q1v==='a' || q1v==='b'){ q2active='q2a'; show('q2a'); }
+  else if(q1v==='c'){ q2active=null; show('q4'); } // 관심과정 없음 → Q4(혜택)로
+  else if(q1v==='d'){ q2active='q2b'; show('q2b'); }
+  else if(q1v==='e'){ q2active='q2c'; show('q2c'); }
 }
 
-function backQ3(){
-  if(q2active){ setCard(q2active); setProg(3); }
-  else { setCard('q1'); setProg(2); }
+// Q4 이전 버튼: 어디서 왔는지에 따라 다르게
+function backQ4(){
+  if(q1v==='a'||q1v==='b') show('q3');
+  else if(q1v==='c') show('q1');
+  else if(q1v==='d') show('q2b');
+}
+
+// Q5 이전 버튼
+function backQ5(){
+  if(q1v==='e') show('q2c');
+  else show('q4');
 }
 
 function finish(){
   document.querySelectorAll('.qcard').forEach(c=>c.classList.remove('on'));
-  document.querySelector('.prog').style.display='none';
-  document.getElementById('done').style.display='block';
+  document.querySelector('.prog').style.display = 'none';
+  document.getElementById('done').style.display = 'block';
   window.scrollTo({top:0,behavior:'smooth'});
 }
 </script>
