@@ -8,7 +8,6 @@
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Pretendard',sans-serif;background:#f5f4f1;min-height:100vh;padding:1.5rem 1rem}
 .wrap{max-width:520px;margin:0 auto}
-
 .header{background:#fff;border-radius:16px;padding:1.6rem 1.4rem 1.4rem;margin-bottom:.75rem;border:1px solid #ebebeb}
 .logo{font-size:13px;font-weight:800;color:#F5A623;letter-spacing:-.3px;margin-bottom:12px}
 .header h1{font-size:17px;font-weight:700;color:#111;line-height:1.45;margin-bottom:7px}
@@ -16,27 +15,22 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Pretend
 .meta{display:flex;gap:10px;margin-top:12px;padding-top:12px;border-top:1px solid #f2f2f2;flex-wrap:wrap}
 .meta span{font-size:11.5px;color:#aaa;display:flex;align-items:center;gap:4px}
 .meta span::before{content:'';width:5px;height:5px;border-radius:50%;background:#F5A623;flex-shrink:0}
-
 .prog{margin-bottom:.75rem}
 .prog-top{display:flex;justify-content:space-between;font-size:11.5px;color:#bbb;margin-bottom:5px}
 .prog-bar{height:3px;background:#e8e8e8;border-radius:10px;overflow:hidden}
 .prog-track{height:100%;background:#F5A623;border-radius:10px;transition:width .3s ease}
-
 .qcard{background:#fff;border-radius:16px;padding:1.4rem 1.4rem 1.2rem;margin-bottom:.75rem;border:1px solid #ebebeb;display:none}
 .qcard.on{display:block}
 .qcard.branch{border-left:3px solid #F5A623}
-
 .qtop{display:flex;align-items:center;gap:7px;margin-bottom:10px;flex-wrap:wrap}
 .qnum{font-size:11px;font-weight:700;color:#F5A623;background:#fffbf0;border:1px solid #fde8b4;padding:2px 9px;border-radius:20px}
 .qtag{font-size:11px;color:#ccc}
 .qreq{font-size:11px;color:#e05555}
 .qopt-label{font-size:11px;color:#aaa}
-
 .qtext{font-size:15px;font-weight:700;color:#111;line-height:1.45;margin-bottom:6px}
 .qsub{font-size:12px;color:#999;line-height:1.6;margin-bottom:12px}
 .hint{background:#fffbf0;border-left:3px solid #F5A623;border-radius:6px;padding:9px 12px;margin-bottom:13px;font-size:12px;color:#a07010;line-height:1.5}
 .limit-note{font-size:11.5px;color:#e05555;margin-bottom:10px;font-weight:500}
-
 .opts{display:flex;flex-direction:column;gap:6px}
 .opt{display:flex;align-items:flex-start;gap:9px;padding:10px 12px;border:1.5px solid #ebebeb;border-radius:10px;cursor:pointer;transition:border-color .12s,background .12s}
 .opt:hover{border-color:#fdd88a;background:#fffdf5}
@@ -45,20 +39,16 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Pretend
 .opt input{margin-top:2px;flex-shrink:0;accent-color:#F5A623;width:14px;height:14px}
 .ol{font-size:13.5px;color:#222;line-height:1.45;flex:1}
 .ol small{display:block;font-size:11px;color:#bbb;margin-top:2px}
-
 textarea{width:100%;border:1.5px solid #ebebeb;border-radius:10px;padding:9px 12px;font-size:13px;color:#222;background:#fafafa;resize:none;height:80px;font-family:inherit;line-height:1.55;transition:border .12s;margin-top:8px}
 textarea:focus{outline:none;border-color:#F5A623;background:#fff}
 textarea::placeholder{color:#ccc}
-
 .nav{display:flex;justify-content:space-between;align-items:center;margin-top:1.1rem}
-.step-txt{font-size:12px;color:#ccc}
 .nav-btns{display:flex;gap:7px}
 .bbk{padding:8px 16px;border:1.5px solid #e8e8e8;border-radius:8px;background:#fff;font-size:13px;color:#aaa;cursor:pointer}
 .bbk:hover{border-color:#ccc;color:#777}
-.bnx{padding:8px 22px;border:none;border-radius:8px;background:#F5A623;font-size:13px;font-weight:600;color:#fff;cursor:pointer;transition:opacity .12s}
+.bnx{padding:8px 22px;border:none;border-radius:8px;background:#F5A623;font-size:13px;font-weight:600;color:#fff;cursor:pointer}
 .bnx:hover{opacity:.85}
 .bnx:disabled{background:#e0e0e0;color:#bbb;cursor:not-allowed}
-
 .done{background:#fff;border-radius:16px;padding:2.2rem 1.5rem;border:1px solid #ebebeb;text-align:center;display:none}
 .done-ic{font-size:42px;margin-bottom:14px}
 .done h2{font-size:17px;font-weight:700;margin-bottom:7px}
@@ -83,7 +73,7 @@ textarea::placeholder{color:#ccc}
   <p>더 나은 가입 경험을 만들기 위해 소중한 의견을 여쭤보려 합니다.</p>
   <div class="meta">
     <span>약 2분 소요</span>
-    <span>최대 6문항</span>
+    <span>최대 7문항</span>
     <span>익명 응답</span>
   </div>
 </div>
@@ -93,7 +83,7 @@ textarea::placeholder{color:#ccc}
   <div class="prog-bar"><div class="prog-track" id="ptrack" style="width:0%"></div></div>
 </div>
 
-<!-- Q1 — 관심과정 여부 -->
+<!-- Q1 -->
 <div class="qcard on" id="q1">
   <div class="qtop"><span class="qnum">Q1</span><span class="qtag">단일선택</span><span class="qreq">필수</span></div>
   <div class="qtext">가입 당시 에듀윌에서 어떤 상황이셨나요?</div>
@@ -121,12 +111,12 @@ textarea::placeholder{color:#ccc}
     </label>
   </div>
   <div class="nav">
-    <span class="step-txt"></span>
+    <span></span>
     <div class="nav-btns"><button class="bnx" id="q1nx" onclick="fromQ1()" disabled>다음</button></div>
   </div>
 </div>
 
-<!-- Q2-A — Q1=a,b 전용: 미선택 이유 -->
+<!-- Q2-A: Q1=a,b -->
 <div class="qcard branch" id="q2a">
   <div class="qtop"><span class="qnum">Q2</span><span class="qtag">복수선택</span><span class="qreq">필수</span></div>
   <div class="qtext">관심 과정이 있었는데 선택하지 않으신 이유는 무엇인가요?</div>
@@ -134,17 +124,16 @@ textarea::placeholder{color:#ccc}
   <div class="opts">
     <label class="opt" onclick="chk(this,'r2a')"><input type="checkbox" name="r2a" value="1"><span class="ol">빨리 가입을 끝내고 싶어서</span></label>
     <label class="opt" onclick="chk(this,'r2a')"><input type="checkbox" name="r2a" value="2"><span class="ol">원하는 과정을 찾기 어려워서</span></label>
-    <label class="opt" onclick="chk(this,'r2a')"><input type="checkbox" name="r2a" value="3"><span class="ol">전화 상담 연락이 올 것 같아서</span></label>
-    <label class="opt" onclick="chk(this,'r2a')"><input type="checkbox" name="r2a" value="4"><span class="ol">문자·카카오톡 안내가 올 것 같아서</span></label>
-    <label class="opt" onclick="chk(this,'r2a')"><input type="checkbox" name="r2a" value="5"><span class="ol">관심사를 플랫폼에 알려주는 것이 부담스러워서</span></label>
-    <label class="opt" onclick="chk(this,'r2a')"><input type="checkbox" name="r2a" value="6"><span class="ol">제공되는 혜택이 충분히 매력적이지 않아서</span></label>
-    <label class="opt" onclick="chk(this,'r2a')"><input type="checkbox" name="r2a" value="7"><span class="ol">하나만 선택해야 해서 고르기 어려워서</span></label>
-    <label class="opt" onclick="chk(this,'r2a')"><input type="checkbox" name="r2a" value="8"><span class="ol">혜택 유효기간 때문에 나중에 선택하려 해서</span></label>
-    <label class="opt" onclick="chk(this,'r2a')"><input type="checkbox" name="r2a" value="9"><span class="ol">기타</span></label>
+    <label class="opt" onclick="chk(this,'r2a')"><input type="checkbox" name="r2a" value="3"><span class="ol">선택하면 추가 연락이 올 것 같아서<small>전화·문자·카카오톡 상담 등</small></span></label>
+    <label class="opt" onclick="chk(this,'r2a')"><input type="checkbox" name="r2a" value="4"><span class="ol">관심사를 플랫폼에 알려주는 것이 부담스러워서</span></label>
+    <label class="opt" onclick="chk(this,'r2a')"><input type="checkbox" name="r2a" value="5"><span class="ol">제공되는 혜택이 충분히 매력적이지 않아서</span></label>
+    <label class="opt" onclick="chk(this,'r2a')"><input type="checkbox" name="r2a" value="6"><span class="ol">하나만 선택해야 해서 고르기 어려워서</span></label>
+    <label class="opt" onclick="chk(this,'r2a')"><input type="checkbox" name="r2a" value="7"><span class="ol">혜택 유효기간 때문에 나중에 선택하려 해서</span></label>
+    <label class="opt" onclick="chk(this,'r2a')"><input type="checkbox" name="r2a" value="8"><span class="ol">기타</span></label>
   </div>
   <textarea id="q2aetc" placeholder="기타 이유를 입력해 주세요" style="display:none"></textarea>
   <div class="nav">
-    <span class="step-txt"></span>
+    <span></span>
     <div class="nav-btns">
       <button class="bbk" onclick="show('q1')">이전</button>
       <button class="bnx" id="q2anx" onclick="show('q3')" disabled>다음</button>
@@ -152,7 +141,7 @@ textarea::placeholder{color:#ccc}
   </div>
 </div>
 
-<!-- Q2-B — Q1=d 전용: 목표 미정 이유 -->
+<!-- Q2-B: Q1=d -->
 <div class="qcard branch" id="q2b">
   <div class="qtop"><span class="qnum">Q2</span><span class="qtag">복수선택</span><span class="qreq">필수</span></div>
   <div class="qtext">아직 관심 과정을 정하지 못하신 이유는 무엇인가요?</div>
@@ -166,7 +155,7 @@ textarea::placeholder{color:#ccc}
   </div>
   <textarea id="q2betc" placeholder="기타 이유를 입력해 주세요" style="display:none"></textarea>
   <div class="nav">
-    <span class="step-txt"></span>
+    <span></span>
     <div class="nav-btns">
       <button class="bbk" onclick="show('q1')">이전</button>
       <button class="bnx" id="q2bnx" onclick="show('q4')" disabled>다음</button>
@@ -174,7 +163,7 @@ textarea::placeholder{color:#ccc}
   </div>
 </div>
 
-<!-- Q2-C — Q1=e 전용: 혜택 목적 세분화 -->
+<!-- Q2-C: Q1=e -->
 <div class="qcard branch" id="q2c">
   <div class="qtop"><span class="qnum">Q2</span><span class="qtag">단일선택</span><span class="qreq">필수</span></div>
   <div class="qtext">주로 어떤 목적으로 가입하셨나요?</div>
@@ -187,7 +176,7 @@ textarea::placeholder{color:#ccc}
   </div>
   <textarea id="q2cetc" placeholder="기타 목적을 입력해 주세요" style="display:none"></textarea>
   <div class="nav">
-    <span class="step-txt"></span>
+    <span></span>
     <div class="nav-btns">
       <button class="bbk" onclick="show('q1')">이전</button>
       <button class="bnx" id="q2cnx" onclick="show('q5')" disabled>다음</button>
@@ -195,7 +184,7 @@ textarea::placeholder{color:#ccc}
   </div>
 </div>
 
-<!-- Q3 — 과정 찾기 난이도 (Q1=a,b만) -->
+<!-- Q3: Q1=a,b 전용 — 과정 찾기 난이도 -->
 <div class="qcard" id="q3">
   <div class="qtop"><span class="qnum">Q3</span><span class="qtag">단일선택</span><span class="qreq">필수</span></div>
   <div class="qtext">관심과정 선택 화면에서 원하는 과정을 찾기가 쉬우셨나요?</div>
@@ -208,7 +197,7 @@ textarea::placeholder{color:#ccc}
     <label class="opt" onclick="pick('q3','5',this)"><input type="radio" name="q3" value="5"><span class="ol">매우 어려웠다</span></label>
   </div>
   <div class="nav">
-    <span class="step-txt"></span>
+    <span></span>
     <div class="nav-btns">
       <button class="bbk" onclick="show('q2a')">이전</button>
       <button class="bnx" id="q3nx" onclick="show('q4')" disabled>다음</button>
@@ -216,22 +205,23 @@ textarea::placeholder{color:#ccc}
   </div>
 </div>
 
-<!-- Q4 — 혜택 중심 (Q1=a,b,c,d / Q1=e는 스킵) -->
+<!-- Q4: Q1=a,b,c,d — 선택 유도 요인 -->
 <div class="qcard" id="q4">
   <div class="qtop"><span class="qnum">Q4</span><span class="qtag">복수선택</span><span class="qreq">필수</span></div>
-  <div class="qtext">아래 중 어떤 혜택이 있었다면 관심과정을 선택하셨을 것 같나요?</div>
+  <div class="qtext">관심과정을 선택하도록 만들 수 있었던 요소는 무엇이라고 생각하시나요?</div>
   <div class="limit-note">최대 2개까지 선택 가능합니다</div>
   <div class="opts">
-    <label class="opt" onclick="chkLimit(this,'r4',2)"><input type="checkbox" name="r4" value="1"><span class="ol">즉시 사용 가능한 고액 할인쿠폰<small>예) 선택 즉시 3만원 이상 할인</small></span></label>
+    <label class="opt" onclick="chkLimit(this,'r4',2)"><input type="checkbox" name="r4" value="1"><span class="ol">즉시 사용 가능한 할인쿠폰<small>예) 선택 즉시 3만원 이상 할인</small></span></label>
     <label class="opt" onclick="chkLimit(this,'r4',2)"><input type="checkbox" name="r4" value="2"><span class="ol">유효기간이 긴 혜택<small>예) 쿠폰·무료강의 유효기간 30일 이상</small></span></label>
     <label class="opt" onclick="chkLimit(this,'r4',2)"><input type="checkbox" name="r4" value="3"><span class="ol">최신 기출문제·합격자료 PDF 즉시 제공</span></label>
-    <label class="opt" onclick="chkLimit(this,'r4',2)"><input type="checkbox" name="r4" value="4"><span class="ol">전 과목 무료 맛보기 강의 제공<small>선택한 과정의 대표 강의 무료 시청</small></span></label>
-    <label class="opt" onclick="chkLimit(this,'r4',2)"><input type="checkbox" name="r4" value="5"><span class="ol">선택해도 광고·TM 연락이 없다는 보장</span></label>
-    <label class="opt" onclick="chkLimit(this,'r4',2)"><input type="checkbox" name="r4" value="6"><span class="ol">여러 과정을 동시에 선택 가능</span></label>
-    <label class="opt" onclick="chkLimit(this,'r4',2)"><input type="checkbox" name="r4" value="7"><span class="ol">해당 없음</span></label>
+    <label class="opt" onclick="chkLimit(this,'r4',2)"><input type="checkbox" name="r4" value="4"><span class="ol">무료 맛보기 강의 제공<small>선택한 과정 대표 강의 무료 시청</small></span></label>
+    <label class="opt" onclick="chkLimit(this,'r4',2)"><input type="checkbox" name="r4" value="5"><span class="ol">여러 과정을 동시에 선택 가능</span></label>
+    <label class="opt" onclick="chkLimit(this,'r4',2)"><input type="checkbox" name="r4" value="6"><span class="ol">과정 추천 기능 제공<small>내 상황에 맞는 과정을 추천받을 수 있었다면</small></span></label>
+    <label class="opt" onclick="chkLimit(this,'r4',2)"><input type="checkbox" name="r4" value="7"><span class="ol">선택해도 연락이 오지 않는다는 안내</span></label>
+    <label class="opt" onclick="chkLimit(this,'r4',2)"><input type="checkbox" name="r4" value="8"><span class="ol">해당 없음</span></label>
   </div>
   <div class="nav">
-    <span class="step-txt"></span>
+    <span></span>
     <div class="nav-btns">
       <button class="bbk" id="q4bk" onclick="backQ4()">이전</button>
       <button class="bnx" id="q4nx" onclick="show('q5')" disabled>다음</button>
@@ -239,7 +229,7 @@ textarea::placeholder{color:#ccc}
   </div>
 </div>
 
-<!-- Q5 — 혜택 인지 (전체 공통) -->
+<!-- Q5: 전체 공통 — 혜택 인지 -->
 <div class="qcard" id="q5">
   <div class="qtop"><span class="qnum">Q5</span><span class="qtag">단일선택</span><span class="qreq">필수</span></div>
   <div class="qtext">관심과정 선택 시 할인쿠폰·무료강의를 받을 수 있다는 걸 알고 계셨나요?</div>
@@ -249,24 +239,44 @@ textarea::placeholder{color:#ccc}
     <label class="opt" onclick="pick('q5','c',this)"><input type="radio" name="q5" value="c"><span class="ol">몰랐다</span></label>
   </div>
   <div class="nav">
-    <span class="step-txt"></span>
+    <span></span>
     <div class="nav-btns">
       <button class="bbk" id="q5bk" onclick="backQ5()">이전</button>
-      <button class="bnx" id="q5nx" onclick="show('q6')" disabled>다음</button>
+      <button class="bnx" id="q5nx" onclick="fromQ5()" disabled>다음</button>
     </div>
   </div>
 </div>
 
-<!-- Q6 — 자유응답 (전체 공통) -->
+<!-- Q5-A: Q5=a 전용 — 혜택 이해도 -->
+<div class="qcard branch" id="q5a">
+  <div class="qtop"><span class="qnum">Q5-A</span><span class="qtag">단일선택</span><span class="qreq">필수</span></div>
+  <div class="qtext">관심과정 선택 시 받을 수 있는 혜택 내용이 이해하기 쉬우셨나요?</div>
+  <div class="opts">
+    <label class="opt" onclick="pick('q5a','1',this)"><input type="radio" name="q5a" value="1"><span class="ol">매우 쉬웠다</span></label>
+    <label class="opt" onclick="pick('q5a','2',this)"><input type="radio" name="q5a" value="2"><span class="ol">쉬웠다</span></label>
+    <label class="opt" onclick="pick('q5a','3',this)"><input type="radio" name="q5a" value="3"><span class="ol">보통이었다</span></label>
+    <label class="opt" onclick="pick('q5a','4',this)"><input type="radio" name="q5a" value="4"><span class="ol">어려웠다</span></label>
+    <label class="opt" onclick="pick('q5a','5',this)"><input type="radio" name="q5a" value="5"><span class="ol">매우 어려웠다</span></label>
+  </div>
+  <div class="nav">
+    <span></span>
+    <div class="nav-btns">
+      <button class="bbk" onclick="show('q5')">이전</button>
+      <button class="bnx" id="q5anx" onclick="show('q6')" disabled>다음</button>
+    </div>
+  </div>
+</div>
+
+<!-- Q6: 전체 공통 — 자유응답 -->
 <div class="qcard" id="q6">
   <div class="qtop"><span class="qnum">Q6</span><span class="qtag">자유응답</span><span class="qopt-label">선택</span></div>
   <div class="qtext">관심과정을 선택하지 않은 이유를 자유롭게 적어주세요.</div>
   <div class="qsub">앞의 선택지에 없었던 이유나 불편했던 점 모두 환영합니다.</div>
   <textarea id="q6txt" placeholder="예) 관심과정이 회원정보에 저장되는 줄 몰랐어요 / 나중에 변경 안 되는 줄 알았어요 / 베스트 과목이 광고처럼 보여서 안 눌렀어요 ..."></textarea>
   <div class="nav">
-    <span class="step-txt"></span>
+    <span></span>
     <div class="nav-btns">
-      <button class="bbk" onclick="show('q5')">이전</button>
+      <button class="bbk" id="q6bk" onclick="backQ6()">이전</button>
       <button class="bnx" onclick="finish()">제출하기</button>
     </div>
   </div>
@@ -289,100 +299,105 @@ textarea::placeholder{color:#ccc}
 
 </div>
 <script>
-// 상태
 var q1v = null;
-var q2active = null; // 'q2a' | 'q2b' | 'q2c' | null
-
-// 진행률 계산: 각 카드의 최대 스텝 수 매핑
-var stepMap = {q1:1, q2a:2, q2b:2, q2c:2, q3:3, q4:4, q5:5, q6:6};
-var totalSteps = 6;
-
-function setProg(cardId){
-  var s = stepMap[cardId] || 1;
-  var p = Math.round(s/totalSteps*100);
-  document.getElementById('ptrack').style.width = p+'%';
-  document.getElementById('ppct').textContent = p+'%';
-  document.getElementById('plabel').textContent = s+' / '+totalSteps;
-}
+var q2active = null;
+var q5v = null;
 
 function show(id){
   document.querySelectorAll('.qcard').forEach(c=>c.classList.remove('on'));
   document.getElementById(id).classList.add('on');
-  setProg(id);
+  updateProg(id);
   window.scrollTo({top:0,behavior:'smooth'});
+}
+
+// 경로별 최대 스텝 수 (Q1=a,b 기준 최대 7스텝)
+var stepMap = {
+  q1:1, q2a:2, q2b:2, q2c:2, q3:3, q4:4, q5:5, q5a:6, q6:7,
+  q2a:2, q2b:2, q2c:2
+};
+function updateProg(id){
+  var s = stepMap[id] || 1;
+  var total = 7;
+  var p = Math.round(s/total*100);
+  document.getElementById('ptrack').style.width = p+'%';
+  document.getElementById('ppct').textContent = p+'%';
+  document.getElementById('plabel').textContent = s+' / '+total;
 }
 
 function pick(nm, val, el){
   document.querySelectorAll('input[name="'+nm+'"]').forEach(i=>i.closest('.opt').classList.remove('on'));
   el.classList.add('on');
   el.querySelector('input').checked = true;
-
-  if(nm==='q1'){
-    q1v = val;
-    document.getElementById('q1nx').disabled = false;
-  }
-  if(nm==='q2c'){
-    document.getElementById('q2cetc').style.display = val==='5' ? 'block' : 'none';
-    document.getElementById('q2cnx').disabled = false;
-  }
-  if(nm==='q3') document.getElementById('q3nx').disabled = false;
-  if(nm==='q5') document.getElementById('q5nx').disabled = false;
+  if(nm==='q1'){ q1v=val; document.getElementById('q1nx').disabled=false; }
+  if(nm==='q2c'){ document.getElementById('q2cetc').style.display=val==='5'?'block':'none'; document.getElementById('q2cnx').disabled=false; }
+  if(nm==='q3') document.getElementById('q3nx').disabled=false;
+  if(nm==='q5'){ q5v=val; document.getElementById('q5nx').disabled=false; }
+  if(nm==='q5a') document.getElementById('q5anx').disabled=false;
 }
 
 function chk(el, grp){
-  var cb = el.querySelector('input');
-  cb.checked = !cb.checked;
-  el.classList.toggle('on', cb.checked);
-  var any = document.querySelectorAll('input[name="'+grp+'"]:checked').length > 0;
+  var cb=el.querySelector('input');
+  cb.checked=!cb.checked;
+  el.classList.toggle('on',cb.checked);
+  var any=document.querySelectorAll('input[name="'+grp+'"]:checked').length>0;
   if(grp==='r2a'){
-    document.getElementById('q2aetc').style.display = document.querySelector('input[name="r2a"][value="9"]:checked') ? 'block' : 'none';
-    document.getElementById('q2anx').disabled = !any;
+    document.getElementById('q2aetc').style.display=document.querySelector('input[name="r2a"][value="8"]:checked')?'block':'none';
+    document.getElementById('q2anx').disabled=!any;
   }
   if(grp==='r2b'){
-    document.getElementById('q2betc').style.display = document.querySelector('input[name="r2b"][value="5"]:checked') ? 'block' : 'none';
-    document.getElementById('q2bnx').disabled = !any;
+    document.getElementById('q2betc').style.display=document.querySelector('input[name="r2b"][value="5"]:checked')?'block':'none';
+    document.getElementById('q2bnx').disabled=!any;
   }
 }
 
 function chkLimit(el, grp, max){
-  var cb = el.querySelector('input');
-  var checked = document.querySelectorAll('input[name="'+grp+'"]:checked');
-  if(!cb.checked && checked.length >= max) return;
-  cb.checked = !cb.checked;
-  el.classList.toggle('on', cb.checked);
-  var nowChecked = document.querySelectorAll('input[name="'+grp+'"]:checked');
+  var cb=el.querySelector('input');
+  var checked=document.querySelectorAll('input[name="'+grp+'"]:checked');
+  if(!cb.checked && checked.length>=max) return;
+  cb.checked=!cb.checked;
+  el.classList.toggle('on',cb.checked);
+  var now=document.querySelectorAll('input[name="'+grp+'"]:checked');
   document.querySelectorAll('input[name="'+grp+'"]').forEach(function(i){
-    var opt = i.closest('.opt');
-    opt.classList.toggle('dim', !i.checked && nowChecked.length >= max);
+    i.closest('.opt').classList.toggle('dim',!i.checked && now.length>=max);
   });
-  document.getElementById('q4nx').disabled = nowChecked.length === 0;
+  document.getElementById('q4nx').disabled=now.length===0;
 }
 
 function fromQ1(){
   if(!q1v) return;
-  if(q1v==='a' || q1v==='b'){ q2active='q2a'; show('q2a'); }
-  else if(q1v==='c'){ q2active=null; show('q4'); } // 관심과정 없음 → Q4(혜택)로
+  if(q1v==='a'||q1v==='b'){ q2active='q2a'; show('q2a'); }
+  else if(q1v==='c'){ q2active=null; show('q4'); }
   else if(q1v==='d'){ q2active='q2b'; show('q2b'); }
   else if(q1v==='e'){ q2active='q2c'; show('q2c'); }
 }
 
-// Q4 이전 버튼: 어디서 왔는지에 따라 다르게
 function backQ4(){
   if(q1v==='a'||q1v==='b') show('q3');
   else if(q1v==='c') show('q1');
   else if(q1v==='d') show('q2b');
 }
 
-// Q5 이전 버튼
 function backQ5(){
   if(q1v==='e') show('q2c');
   else show('q4');
 }
 
+// Q5 다음: a면 Q5-A로, b/c면 Q6로
+function fromQ5(){
+  if(q5v==='a') show('q5a');
+  else show('q6');
+}
+
+// Q6 이전: Q5-A를 거쳤으면 Q5-A로, 아니면 Q5로
+function backQ6(){
+  if(q5v==='a') show('q5a');
+  else show('q5');
+}
+
 function finish(){
   document.querySelectorAll('.qcard').forEach(c=>c.classList.remove('on'));
-  document.querySelector('.prog').style.display = 'none';
-  document.getElementById('done').style.display = 'block';
+  document.querySelector('.prog').style.display='none';
+  document.getElementById('done').style.display='block';
   window.scrollTo({top:0,behavior:'smooth'});
 }
 </script>
